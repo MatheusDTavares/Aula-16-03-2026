@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="aposta1">
+    <input type="text" id="aposta2">
+    <input type="text" id="aposta3">
+    <input type="text" id="aposta4">
+    <input type="text" id="aposta5">
+    <button onclick="Exibir()">Exibir resultado</button>
+    <div id="resultado"></div>
+</body>
+<script>
+    let ganhadores = ["Janna","Lucian","Nami","Viktor","Yasuo"]
+
+    function Exibir(){
+        let acertos = 0
+        let Palpite_correto = ganhadores.length;
+        console.log(Palpite_correto)
+        let mensagem;
+        let Palpites = [aposta1.value, aposta2.value, aposta3.value, aposta4.value, aposta5.value]
+        if(Palpites[0] == ganhadores[0]){
+          acertos++
+          mensagem +=`1 Nome Certo:${ganhadores[0]} | Sua resposta:${Palpites[0]}<br>`
+    }
+    if(Palpites[1] == ganhadores[1]){
+        acertos++
+        mensagem +=`2º Nome Certo:${ganhadores[1]} | Sua resposta:${Palpites[1]}<br>`
+    }
+    else if(Palpites[2] == ganhadores[2]){
+        acertos++
+        mensagem += `3º Nome Certo:${ganhadores[2]} | Sua resposta:${Palpites[2]}<br>`
+    }
+    else if(Palpites[3] == ganhadores[3]){
+        acertos++
+        mensagem += `4º Nome Certo:${ganhadores[3]} | Sua resposta:${Palpites[3]}<br>`
+    }
+    else if(Palpites[4] == ganhadores[4]){
+        acertos++
+        mensagem += `5º Nome Certo:${ganhadores[4]} | Sua resposta:${Palpites[4]}<br> `
+    }
+    let erros = Palpite_correto - acertos;
+
+    if(erros <=2){
+        mensagem += `Você conhece bem essa competição`
+    }
+    else{
+        mensagem += `Você precisa acompanhar mais essa competição!`
+    }
+        resultado.innerHTML = `
+        ${mensagem} <br> Seus erros foram: ${erros}
+        `
+
+}
+
+</script>
+</html>
+
+ <!--resultado.innerHTML +=``
+        else if(Palpites.includes("Janna","Lucian","Nami","Viktor","Yasuo")){
+            resultado.innerHTML = `Está certo`
+        }
+        else{
+            resultado.innerHTML = `Está errado`
